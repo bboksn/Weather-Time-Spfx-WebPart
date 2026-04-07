@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.22.2",
+    "sdksVersions": {},
+    "version": "1.22.2",
+    "libraryName": "weather-time-webpart",
+    "libraryId": "59403754-fa5c-4a6a-9bb8-407681d4d452",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "weather-time-webpart",
+    "solutionShortDescription": "weather-time-webpart description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
