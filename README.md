@@ -46,6 +46,20 @@ npm start
 npm run build
 ```
 
+## Deploy to production
+
+1. Package the solution if not already built:
+   ```bash
+   npm run build
+   ```
+2. Open the generated package in `sharepoint/solution` or `sharepoint/solution/<solution-name>.sppkg`.
+3. Upload the `.sppkg` file to your SharePoint App Catalog.
+4. In the App Catalog, choose to deploy the package and trust any requested permissions.
+5. Add the web part to a SharePoint page in the target site collection.
+6. Enter your Azure Maps key in the web part property pane and save the page.
+
+> If your App Catalog uses tenant-scoped deployment, the web part will become available across the tenant.
+
 ## Azure Maps key configuration
 
 1. Add the web part to a SharePoint page.
