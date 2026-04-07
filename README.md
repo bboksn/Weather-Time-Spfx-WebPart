@@ -1,77 +1,81 @@
-# weather-time-webpart
+# Weather Time Web Part
 
-## Summary
+A simple SharePoint Framework web part that displays current weather using Azure Maps, with a location search input, live clock, and a compact temperature display.
 
-Short summary on functionality and used technologies.
+## Key features
 
-[picture of the solution in action, if possible]
-
-## Used SharePoint Framework Version
-
-![version](https://img.shields.io/badge/version-1.22.2-green.svg)
-
-## Applies to
-
-- [SharePoint Framework](https://aka.ms/spfx)
-- [Microsoft 365 tenant](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
-
-> Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
+- Current weather lookup via Azure Maps REST APIs
+- Search by city, address, or U.S. ZIP code
+- Live browser time display
+- Clickable temperature unit toggle (`°C` / `°F`)
+- Minimal, one-line search interface
 
 ## Prerequisites
 
-> Any special pre-requisites?
+- Node.js 22.x (`>=22.14.0 < 23.0.0`)
+- An Azure Maps subscription key
+- A SharePoint Online tenant to deploy the web part
 
-## Solution
+## Setup
 
-| Solution    | Author(s)                                               |
-| ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd weather-time-webpart
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Trust the SPFx developer certificate if needed:
+   ```bash
+   npx @microsoft/sp-build-web --trust-dev-cert
+   ```
 
-## Version history
+## Run locally
 
-| Version | Date             | Comments        |
-| ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
+Start the local development experience:
 
-## Disclaimer
+```bash
+npm start
+```
 
-**THIS CODE IS PROVIDED _AS IS_ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+## Build for production
 
----
+```bash
+npm run build
+```
 
-## Minimal Path to Awesome
+## Azure Maps key configuration
 
-- Clone this repository
-- Ensure that you are at the solution folder
-- in the command-line run:
-  - `npm install -g @rushstack/heft`
-  - `npm install`
-  - `heft start`
+1. Add the web part to a SharePoint page.
+2. Open the web part property pane.
+3. Enter your Azure Maps subscription key in the Azure Maps key field.
+4. Save the web part properties.
 
-> Include any additional steps as needed.
+> The key is required to call Azure Maps address search and weather APIs.
 
-Other build commands can be listed using `heft --help`.
+## How to use the web part
 
-## Features
+- Type a city name, address, or U.S. ZIP code into the search field.
+- Press `Enter` to run the lookup.
+- Click the temperature unit label to switch between Celsius and Fahrenheit.
+- The current location and live clock are shown inside the card.
 
-Description of the extension that expands upon high-level summary above.
+## Project structure
 
-This extension illustrates the following concepts:
+- `src/webparts/weatherTime/components/Weather.tsx` — main React weather UI and Azure Maps logic
+- `src/webparts/weatherTime/WeatherTime.tsx` — React wrapper for the web part
+- `src/webparts/weatherTime/WeatherTimeWebPart.ts` — SPFx web part declaration and property pane
 
-- topic 1
-- topic 2
-- topic 3
+## Notes
 
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
-
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
+- This project uses SharePoint Framework `1.22.2`.
+- The component is designed for a lightweight, minimal visual impression.
+- If ZIP code lookup fails, verify that the Azure Maps key is valid and that the API is reachable.
 
 ## References
 
-- [Getting started with SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
-- [Building for Microsoft teams](https://docs.microsoft.com/sharepoint/dev/spfx/build-for-teams-overview)
-- [Use Microsoft Graph in your solution](https://docs.microsoft.com/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
-- [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-overview)
-- [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
-- [Heft Documentation](https://heft.rushstack.io/)
+- [SharePoint Framework documentation](https://learn.microsoft.com/sharepoint/dev/spfx/)
+- [Azure Maps REST APIs](https://learn.microsoft.com/azure/azure-maps/)
+- [Heft documentation](https://heft.rushstack.io/)

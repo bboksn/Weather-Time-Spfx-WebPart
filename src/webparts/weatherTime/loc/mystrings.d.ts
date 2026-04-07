@@ -10,6 +10,7 @@ declare interface IWeatherTimeWebPartStrings {
   AppTeamsTabEnvironment: string;
   AppOfficeEnvironment: string;
   AppOutlookEnvironment: string;
+  AzureMapsKeyFieldLabel: string;
   UnknownEnvironment: string;
 }
 

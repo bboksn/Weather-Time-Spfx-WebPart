@@ -4,4 +4,5 @@ export interface IWeatherTimeProps {
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
+  azureMapsKey: string;
 }

@@ -14,6 +14,7 @@ import { IWeatherTimeProps } from './components/IWeatherTimeProps';
 
 export interface IWeatherTimeWebPartProps {
   description: string;
+  azureMapsKey: string;
 }
 
 export default class WeatherTimeWebPart extends BaseClientSideWebPart<IWeatherTimeWebPartProps> {
@@ -29,7 +30,8 @@ export default class WeatherTimeWebPart extends BaseClientSideWebPart<IWeatherTi
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        azureMapsKey: this.properties.azureMapsKey
       }
     );
 
@@ -110,6 +112,9 @@ export default class WeatherTimeWebPart extends BaseClientSideWebPart<IWeatherTi
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneTextField('azureMapsKey', {
+                  label: strings.AzureMapsKeyFieldLabel
                 })
               ]
             }

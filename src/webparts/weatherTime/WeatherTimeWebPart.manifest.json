@@ -22,7 +22,8 @@
     "description": { "default": "WeatherTime description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "WeatherTime"
+      "description": "WeatherTime",
+      "azureMapsKey": ""
     }
   }]
 }
